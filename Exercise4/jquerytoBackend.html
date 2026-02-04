@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student App</title>
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.min.js"></script>
+
+    <style>
+        body { font-family: Arial; text-align: center; }
+        input { padding: 5px; margin: 5px; }
+        button { padding: 6px 12px; margin: 5px; }
+        table { margin: auto; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ccc; padding: 8px; }
+    </style>
+</head>
+
+<body>
+
+<h2>Add Student</h2>
+
+<input type="text" id="name" placeholder="Name">
+<input type="email" id="email" placeholder="Email">
+<input type="number" id="age" placeholder="Age">
+<br>
+<button id="addBtn">Add Student</button>
+<button id="loadBtn">Load Students</button>
+
+<table id="studentTable" style="display:none">
+    <thead>
+        <tr>
+            <th>ID</th><th>Name</th><th>Email</th><th>Age</th>
+        </tr>
+    </thead>
+    <tbody id="studentBody"></tbody>
+</table>
+
+<script>
+$(document).ready(function () {
+
+    const url = "http://localhost:9400/api/students";
+
+    $("#loadBtn").click(function () {
+        $.get(url, function (data) {
+            $("#studentBody").empty();
+            $("#studentTable").show();
+
+            data.forEach(s => {
+                $("#studentBody").append(`
+                    <tr>
+                        <td>${s.id}</td>
+                        <td>${s.name}</td>
+                        <td>${s.email}</td>
+                        <td>${s.age}</td>
+                    </tr>
+                `);
+            });
+        });
+    });
+
+    $("#addBtn").click(function () {
+
+        const student = {
+            name: $("#name").val(),
+            email: $("#email").val(),
+            age: parseInt($("#age").val())
+        };
+
+        $.ajax({
+            url: url,
+            type: "POST",
+            contentType: "application/json",
+            data: JSON.stringify(student),
+
+            success: function () {
+                alert("Student added successfully");
+                $("#loadBtn").click(); 
+            },
+
+            error: function (xhr) {
+                console.error(xhr.responseText);
+                alert("Error adding student");
+            }
+        });
+    });
+
+});
+</script>
+
+</body>
+</html>

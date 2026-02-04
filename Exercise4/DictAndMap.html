@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        const dict={
+            "apple":"A fruit that is red or green.",
+            "banana":"A long yellow fruit.",    
+            "carrot":"An orange vegetable."
+        };
+        console.log("Dictionary: elements and their meanings:");
+        for(const key in dict){
+            console.log(`${key}: ${dict[key]}`);
+        }
+        document.write("<h2>Dictionary Contents:</h2>");
+        for(const key in dict){
+            document.write(`<p><strong>${key}:</strong> ${dict[key]}</p>`);
+        }   
+        function MapEx(){
+            const num=[1,2,3,4,5];
+            const squaredNum=num.map(x=>x*x);
+            console.log("Squared Numbers:", squaredNum);
+            document.write("<h2>Squared Numbers:</h2>");
+            document.write(`<p>${squaredNum.join(", ")}</p>`);
+        }
+        MapEx();
+        function convertemployee(){
+            const employees=[
+                {name:"Alice",salary:5000},
+                {name:"Bob",salary:6000},   
+                {name:"Charlie",salary:7000}
+            ];
+           // convet to table format
+              let table="<table border='1'><tr><th>Name</th><th>Salary</th></tr>";
+                employees.map(emp=>{
+                    table+=`<tr><td>${emp.name}</td><td>${emp.salary}</td></tr>`;
+                });
+                table+="</table>";
+                document.write(table);
+
+        } ;
+        convertemployee();
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

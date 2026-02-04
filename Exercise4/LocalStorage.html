@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Local Storage Demo</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4facfe, #00f2fe);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0;
+        }
+
+        .container {
+            background: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            text-align: center;
+            width: 300px;
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin: 8px 0;
+            border: none;
+            border-radius: 8px;
+            background-color: #4facfe;
+            color: white;
+            font-size: 14px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #007bff;
+            transform: scale(1.03);
+        }
+
+        #spData {
+            margin-top: 15px;
+            font-weight: bold;
+            color: #333;
+        }
+    </style>
+
+    <script>
+        function storeData() {
+            const Data = prompt("Enter data to be stored:");
+            localStorage.setItem("name", Data);
+            alert("Data Stored in Local Storage");
+        }
+
+        function loadData() {
+            const Data = localStorage.getItem("name");
+            document.getElementById("spData").innerText =
+                Data ? Data : "No data found in Local Storage";
+        }
+
+        function storeObjectData() {
+            const obj = {
+                firstName: "John",
+                lastName: "Doe",
+                age: 30
+            };
+            localStorage.setItem("user", JSON.stringify(obj));
+            alert("Object Data Stored in Local Storage");
+        }
+
+        function loadObjectData() {
+            const objData = localStorage.getItem("user");
+            if (objData) {
+                const obj = JSON.parse(objData);
+                document.getElementById("spData").innerText =
+                    `Name: ${obj.firstName} ${obj.lastName}, Age: ${obj.age}`;
+            } else {
+                document.getElementById("spData").innerText =
+                    "No object data found in Local Storage";
+            }
+        }
+
+        window.addEventListener('load', function() {
+            document.getElementsByTagName('button')[0].addEventListener('click', storeData);
+            document.getElementsByTagName('button')[1].addEventListener('click', loadData);
+            document.getElementsByTagName('button')[2].addEventListener('click', storeObjectData);
+            document.getElementsByTagName('button')[3].addEventListener('click', loadObjectData);
+        });
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Local Storage Demo</h2>
+
+        <button>Store Data</button>
+        <button>Load Data</button>
+        <button>Store Object Data</button>
+        <button>Load Object Data</button>
+
+        <p id="spData"></p>
+    </div>
+</body>
+</html>
