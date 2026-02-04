@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Employee Management System</title>
+
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.min.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+
+<div class="app">
+    <header>
+        <h1>Employee Management System</h1>
+        
+    </header>
+
+    <nav>
+        <button data-target="#addPanel">Add</button>
+        <button data-target="#updatePanel">Update</button>
+        <button data-target="#deletePanel">Delete</button>
+        <button data-target="#listPanel">Show All</button>
+    </nav>
+
+    <!-- ADD -->
+    <section class="panel" id="addPanel">
+        <h2>Add Employee</h2>
+        <input id="addName" placeholder="Name">
+        <input id="addAge" type="number" placeholder="Age">
+        <input id="addBranch" placeholder="Branch">
+        <select id="addGender">
+            <option value="">Gender</option>
+            <option>Male</option>
+            <option>Female</option>
+        </select>
+        <textarea id="addAddress" placeholder="Address"></textarea>
+        <button class="primary" id="addBtn">Add Employee</button>
+    </section>
+
+    <!-- UPDATE -->
+    <section class="panel" id="updatePanel">
+        <h2>Update Employee</h2>
+        <input id="updId" type="number" placeholder="Employee ID">
+        <button id="loadBtn">Load</button>
+
+        <div id="editForm">
+            <input id="updName" placeholder="Name">
+            <input id="updAge" type="number" placeholder="Age">
+            <input id="updBranch" placeholder="Branch">
+            <select id="updGender">
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+            <textarea id="updAddress" placeholder="Address"></textarea>
+            <button class="primary" id="saveBtn">Save Changes</button>
+        </div>
+    </section>
+
+    <!-- DELETE -->
+    <section class="panel" id="deletePanel">
+        <h2>Delete Employee</h2>
+        <input id="delId" type="number" placeholder="Employee ID">
+        <button class="danger" id="deleteBtn">Delete</button>
+    </section>
+
+    <!-- LIST -->
+    <section class="panel" id="listPanel">
+        <h2>All Employees</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th><th>Name</th><th>Age</th>
+                    <th>Branch</th><th>Gender</th><th>Address</th><th>Action</th>
+                </tr>
+            </thead>
+            <tbody id="empTable"></tbody>
+        </table>
+    </section>
+</div>
+
+</body>
+</html>

@@ -1,0 +1,111 @@
+* {
+    box-sizing: border-box;
+    font-family: "Segoe UI", sans-serif;
+}
+
+body {
+    margin: 0;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    min-height: 100vh;
+}
+
+.app {
+    width: 900px;
+    margin: 40px auto;
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 25px 60px rgba(0,0,0,.3);
+}
+
+header {
+    background: linear-gradient(135deg, #4a69bd, #1e3799);
+    color: white;
+    padding: 25px;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    background: #f1f2f6;
+}
+
+nav button {
+    flex: 1;
+    padding: 14px;
+    border: none;
+    cursor: pointer;
+    font-size: 15px;
+    transition: .3s;
+}
+
+nav button:hover {
+    background: #dcdde1;
+}
+
+.panel {
+    padding: 25px;
+}
+
+.panel h2 {
+    margin-bottom: 15px;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+textarea {
+    resize: none;
+    height: 70px;
+}
+
+button.primary {
+    background: #44bd32;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+button.primary:hover {
+    background: #4cd137;
+}
+
+button.danger {
+    background: #e84118;
+    color: white;
+    border: none;
+    padding: 6px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+button.danger:hover {
+    background: #c23616;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+thead {
+    background: #273c75;
+    color: white;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+tbody tr:hover {
+    background: #f5f6fa;
+}
