@@ -20,7 +20,7 @@ $(document).ready(function () {
         $($(this).data("target")).slideDown();
     });
 
-    // ADD
+    
     $("#addBtn").on("click", function () {
         const emp = {
             id: nextId(),
@@ -35,7 +35,6 @@ $(document).ready(function () {
         alert("Employee Added");
     });
 
-    // LOAD FOR UPDATE
     $("#loadBtn").on("click", function () {
         const rec = findEmployee(Number($("#updId").val()));
         if (!rec) return alert("Employee Not Found");
@@ -49,7 +48,6 @@ $(document).ready(function () {
         $("#editForm").fadeIn();
     });
 
-    // SAVE UPDATE
     $("#saveBtn").on("click", function () {
         const id = Number($("#updId").val());
         empCollection = empCollection.map(e =>
@@ -67,7 +65,6 @@ $(document).ready(function () {
         $("#editForm").hide();
     });
 
-    // DELETE
     $("#deleteBtn").on("click", function () {
         const id = Number($("#delId").val());
         empCollection = empCollection.filter(e => e.id !== id);
@@ -75,10 +72,8 @@ $(document).ready(function () {
         alert("Employee Deleted");
     });
 
-    // SHOW ALL
     $("nav button[data-target='#listPanel']").on("click", renderTable);
 
-    // DELETE FROM TABLE
     $("#empTable").on("click", ".delRow", function () {
         const id = Number($(this).data("id"));
         empCollection = empCollection.filter(e => e.id !== id);
