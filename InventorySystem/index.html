@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inventory System</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.aspnetcdn.com/ajax/jquery/jquery-3.7.1.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Inventory</h1>
+
+        <div class="form">
+            <input type="text" id="name" placeholder="Product name">
+            <input type="number" id="qty" placeholder="Quantity">
+            <input type="number" id="price" placeholder="Price">
+            <button id="addBtn">Add Product</button>
+        </div>
+
+        <ul id="productList"></ul>
+
+        <h2 id="totalValue">Total Value: ₹0</h2>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
